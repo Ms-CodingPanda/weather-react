@@ -11,10 +11,10 @@ export default function WeatherSearch() {
 
   function showWeather(response) {
     setWeather({
-      temperature: response.data.main.temp,
+      temperature: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
-      wind: response.data.wind.speed,
-      humidity: response.data.main.humidity,
+      wind: Math.round(response.data.wind.speed),
+      humidity: Math.round(response.data.main.humidity),
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     });
   }
@@ -66,7 +66,7 @@ export default function WeatherSearch() {
                   animate={true}
                 />
               </span>
-              <strong>{weather.temperature}30</strong>
+              <strong>30</strong>
               <span className="units">
                 {" "}
                 <a href="#0"> °F</a>
@@ -75,8 +75,8 @@ export default function WeatherSearch() {
           </div>
           <div className="col-6 conditions">
             <ul>
-              <li>Humidity: {weather.humidity}20%</li>
-              <li>Wind: {weather.wind} 5 km/h</li>
+              <li>Humidity: 20%</li>
+              <li>Wind: 5 km/h</li>
             </ul>
           </div>
         </div>
