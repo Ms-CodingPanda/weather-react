@@ -1,136 +1,59 @@
-import React, { useState } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import axios from "axios";
-import ReactAnimatedWeather from "react-animated-weather";
 import "./App.css";
 import "./Weather.css";
 
 export default function WeatherSearch() {
-  const [city, setCity] = useState("");
-  const [weather, setWeather] = useState({});
-
-  function showWeather(response) {
-    setWeather({
-      temperature: Math.round(response.data.main.temp),
-      description: response.data.weather[0].description,
-      wind: Math.round(response.data.wind.speed),
-      humidity: Math.round(response.data.main.humidity),
-      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
-    });
-  }
-
-  function retrieveWeather(event) {
-    event.preventDefault();
-    let apiKey = "094780c710fa4efd669f0df8c3991927";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(showWeather);
-  }
-
-  function updateCity(event) {
-    setCity(event.target.value);
-  }
-
-  let form = (
-    <form onSubmit={retrieveWeather}>
-      <input
-        type="search"
-        placeholder="Enter a city.."
-        autoComplete="off"
-        onChange={updateCity}
-      />
-      <button type="submit" className="btn btn-primary" value="Search">
-        Search
-      </button>
-    </form>
-  );
-
   return (
-    <div className="container">
-      <div className="weather-app-wrapper weather-app">
-        {form}
-        <div className="overview">
-          <h1>Denver</h1>
-          <ul>
-            <li>Last updated: Thu Jan 20</li>
-            <li>{weather.description}</li>
-          </ul>
-        </div>
+    <div className="Weather">
+      <div className="container">
+        <form>
+          <input
+            type="search"
+            placeholder="Enter a City..."
+            className="formcontrol"
+          />
+          <input type="submit" value="Search" className="btn btn-primary" />
+        </form>
+
+        <h1>Denver</h1>
+        <ul>
+          <li>Monday 02:48</li>
+          <li>Mostly Cloudy</li>
+        </ul>
         <div className="row">
           <div className="col-6">
-            <div className="clearfix weather-temperature">
-              <span className="weather-icon">
-                <ReactAnimatedWeather
-                  icon="CLEAR_DAY"
-                  color="magenta"
-                  size={48}
-                  animate={true}
-                />
-              </span>
-              <strong>30</strong>
-              <span className="units">
-                {" "}
-                <a href="#0"> °F</a>
-              </span>
-            </div>
+            <img
+              src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+              alt="partly cloudy"
+            />
+            6° C
           </div>
-          <div className="col-6 conditions">
+          <div className="col-6">
             <ul>
-              <li>Humidity: 20%</li>
-              <li>Wind: 5 km/h</li>
+              <li>Precipitation:15%</li>
+              <li>Humidity: 72%</li>
+              <li>Wind: 13 km/h</li>
             </ul>
           </div>
         </div>
-        <div className="row forecast">
-          <div className="col">
-            <ul>
-              <li>Fri</li>
-              <li>
-                <ReactAnimatedWeather
-                  icon="CLEAR_DAY"
-                  size={48}
-                  animate={true}
-                />
-              </li>
-              <li>70° F</li>
-            </ul>
-          </div>
-
-          <div className="col">
-            <li>Sat</li>
-            <li>
-              <ReactAnimatedWeather icon="RAIN" size={48} animate={true} />
-            </li>
-            <li>20° F</li>
-          </div>
-          <div className="col">
-            <li>Sun</li>
-            <li>
-              <ReactAnimatedWeather icon="CLOUDY" size={48} animate={true} />
-            </li>
-            <li>36° F</li>
-          </div>
-          <div className="col">
-            <li>Mon</li>
-            <li>
-              <ReactAnimatedWeather icon="CLEAR_DAY" size={48} animate={true} />
-            </li>
-            <li>75° F</li>
-          </div>
-          <div className="col">
-            <li>Tue</li>
-            <li>
-              <ReactAnimatedWeather icon="WIND" size={48} animate={true} />
-            </li>
-            <li>20° F</li>
-          </div>
-          <div className="col">
-            <li>Wed</li>
-            <li>
-              <ReactAnimatedWeather icon="CLEAR_DAY" size={48} animate={true} />
-            </li>
-            <li>60° F</li>
-          </div>
-        </div>
+        <footer>
+          <a
+            href="https://github.com/Ms-CodingPanda/weather-react"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Open Source
+          </a>{" "}
+          Coded by{" "}
+          <a
+            href="https://zen-jackson-19bdb6.netlify.app/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Vanessa Fadase
+          </a>
+        </footer>
       </div>
     </div>
   );
