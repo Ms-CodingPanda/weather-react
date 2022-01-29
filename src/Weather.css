@@ -31,11 +31,10 @@
   padding: 0;
 }
 
-.Weather img {
+.Weather canvas {
   display: inline-block;
   height: 64px;
-  margin-bottom: 40px;
-  margin-right: 10px;
+  margin-right: 20px;
   width: 64px;
 }
 
