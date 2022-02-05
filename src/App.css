@@ -9,4 +9,9 @@
 
 .App a {
   text-decoration: none;
+  color: darkmagenta;
+}
+
+a:hover {
+  color: magenta;
 }

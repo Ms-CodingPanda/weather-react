@@ -1,7 +1,8 @@
 .Weather {
+  background-color: rgba(255, 255, 255, 0.658);
   border: 1px solid rgb(68, 68, 68);
   border-radius: 4px;
-  color: #878787;
+  color: #9c889c;
   font-family: arial, sans-serif;
   margin: 30px auto 10px;
   padding: 16px;
@@ -11,7 +12,15 @@
   margin-bottom: 10px;
 }
 
+.Weather .btn {
+  background-color: rgba(255, 195, 255, 0.993);
+  border: 1px solid rgb(109, 109, 109);
+  box-shadow: 3px 3px 9px #888888;
+  color: #ff00f2;
+}
+
 .Weather h1 {
+  color: rgb(173, 51, 173);
   font-size: 24px;
   font-weight: 100;
   line-height: 28px;
@@ -31,15 +40,16 @@
   padding: 0;
 }
 
-.Weather .temperature {
+.Weather .icon {
   color: rgb(33, 33, 33);
   font-size: 64px;
   font-weight: bold;
   line-height: 64px;
 }
 
-.Weather a {
-  text-decoration: none;
+.Weather .temperature {
+  color: rgb(68, 0, 68);
+  margin-left: 15px;
 }
 
 .Weather .unit {
@@ -50,4 +60,8 @@
   margin-left: 5px;
   position: relative;
   top: -35px;
+}
+
+.Weather .humidityWind {
+  margin-top: 10px;
 }
